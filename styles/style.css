@@ -52,6 +52,34 @@ body{
     
 }
 
+.navbar #log_out {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    font-size: 18px;
+    color: rgb(91, 91, 182);
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 40px;
+}
+
+.navbar #log_out::before{
+    content: '';
+    position: absolute;
+    top: 100% ;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: rgb(91, 91, 182);
+    transition: .3s;
+}
+
+.navbar #log_out:hover::before{
+    width: 100%;
+}
+
+
 .navbar a {
     position: relative;
     font-size: 18px;
@@ -62,7 +90,7 @@ body{
 
 }
 
-.navbar a::before {
+.navbar a::before{
     content: '';
     position: absolute;
     top: 100% ;
@@ -160,6 +188,8 @@ body{
     transition: top 0.5s;
 
 }
+
+
 
 .wrapper #button {
     width: 100%;

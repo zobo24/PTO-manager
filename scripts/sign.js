@@ -113,7 +113,7 @@ function setCookie(value) {
     let expires = "expires=" + exDate.toUTCString();
 
     // document.cookie = `user= ${value};${expires};Secure;path=/`;
-    //None specifies that cookies are sent on both originating and cross-site requests
-    document.cookie = "email=" + value + ";" + expires + ";SameSite=None;Secure;Path=/";
+   
+    document.cookie = "email=" + value + ";" + expires + ";SameSite=None;Secure;path=/";
 
 }
