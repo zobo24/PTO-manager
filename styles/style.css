@@ -1,0 +1,215 @@
+/*assigned to all elements  */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background:rgb(91, 91, 182) ;
+
+    animation: transitionIN 0.75s;
+}
+
+@keyframes transitionIN {
+    from{
+      opacity: 0;
+      transform: rotateX(-10deg);
+    }
+
+    to{
+      opacity: 1;
+      transform: rotateX(0);
+    }
+  }
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 20px 30px;
+    background-color: azure;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100 ;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 32px;
+    color:rgb(91, 91, 182) ;
+    text-decoration: none;
+    font-weight: 700;
+    
+    
+}
+
+.navbar a {
+    position: relative;
+    font-size: 18px;
+    color: rgb(91, 91, 182);
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 40px;
+
+}
+
+.navbar a::before {
+    content: '';
+    position: absolute;
+    top: 100% ;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: rgb(91, 91, 182);
+    transition: .3s;
+}
+
+.navbar a:hover::before{
+    width: 100%;
+}
+
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 420px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,.2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 30px  40px ;
+}
+
+.wrapper h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+    
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgb(255,255,255,.2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+    color: #fff;
+
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+#email-error{
+    position: flex;
+    align-items: center;
+    top: 100%;
+    left: 2px;
+    font-size: 16px;
+    font-weight: 400;
+    color: red;
+    transition: top 0.5s;
+}
+
+#password-error {
+    position: flex;
+    align-items: center;
+    top: 100%;
+    left: 2px;
+    font-size: 16px;
+    font-weight: 400;
+    color: red;
+    transition: top 0.5s;
+
+}
+
+.wrapper #button {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+#wrapper-message {
+    width: 620px;
+    background: rgb(82, 82, 165);
+    border: 2px solid rgba(255,255,255,.2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    color: white;
+    border-radius: 10px;
+    padding: 30px  40px ;
+}
+
+#wrapper-message h2 {
+    font-size: 30px;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+@media  screen and (max-width: 900px){
+    body{
+        width: 90%;
+        padding-left: 15px;
+        
+    }
+}
+
+@media  screen and (max-width:600px) {
+    body{
+        width: 95%;
+        padding-left: 15px ;
+        padding-top: 30px;
+        
+    }
+
+    .wrapper{
+        height: 40%;
+    }
+    
+}
