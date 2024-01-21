@@ -46,7 +46,7 @@ function validationPassword() {
     //for example =?.*[a-z] checks the string if there is at least one lower case character
     //[a-zA-Z0-9@$!%*?&]{8,} this regex expression checks that there is minimum 8 characters from which at least one of each (upper,lower case, number, special character) needs to be in match 
 
-    if (!password.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!&%*?@])[a-zA-Z0-9@$!%*?&]{8,}$/)) {
+    if (!password.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!&%*?@{})()])[a-zA-Z0-9@$!%*?&{})(]{8,}$/)) {
         passwordError.innerHTML = "-Enter a valid password-";
         password.style.borderBottomColor = "red";
         password.style.top = "120%";
@@ -60,14 +60,6 @@ function validationPassword() {
     return true;
 }
 
-
-/*
-function site(){
-    window.location.assign="main.html";
-}
-*/
-
-let page = window.location.assign="main.html";
 
 //function checking that submit rquirements are correct
 function validationSign() {
@@ -93,17 +85,24 @@ function validationSign() {
         return false;
     }
 
-    //new user
-    //email stored to cookie 
-    setCookie(email.value);
-    //console.log(email.value);
-
     return true;
-
+     
 }
 
+document.getElementById("button").addEventListener("click", function(event) {
+    event.preventDefault(); //prevent reloading of page
 
-//document.getElementById("button").addEventListener("click", validationSign);
+    validationSign();//checks if functions are true or false to give message to member
+
+    if(validationEmail() && validationPassword()){
+    event.preventDefault();
+    window.location.href = "main.html";
+     //new user
+    //email stored to cookie 
+    setCookie(email.value);
+    }
+
+});
 
 
 //cookie function by value
