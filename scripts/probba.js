@@ -7,19 +7,19 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 		const localStoragePtoData = localStorage.getItem("PtoDate");
 
-		if(localStoragePtoData){
+		if (localStoragePtoData) {
 			const storadgePtoList = JSON.parse(localStoragePtoData);
 
 			const ptoListContainer = document.getElementById("pto-list-container");
 
-			storadgePtoList.forEach( ele => {
-				const PtoElement = createPtoElement( new Date(ele.startDate), new Date(ele.endDate));
+			storadgePtoList.forEach(ele => {
+				const PtoElement = createPtoElement(new Date(ele.startDate), new Date(ele.endDate));
 
 				ptoListContainer.appendChild(PtoElement);
 			})
-			
+
 		}
-			
+
 		// get user
 		const res = await fetch('https://jsonplaceholder.typicode.com/users/1');
 
@@ -37,15 +37,15 @@ document.addEventListener('DOMContentLoaded', async function () {
 });
 
 
-function handlePtoForm(event){
+function handlePtoForm(event) {
 	event.preventDefault();
 
 	const formData = new FormData(event.target);
 
 	const startDateInput = formData.get("start-date-input");
 	const endDateInput = formData.get("end-date-input");
-	
-	if(!startDateInput || !endDateInput){
+
+	if (!startDateInput || !endDateInput) {
 		alert("Missing one of dates!");
 		return;
 	}
@@ -53,12 +53,12 @@ function handlePtoForm(event){
 	startDate = new Date(startDateInput);
 	endDate = new Date(endDateInput);
 
-	if( startDate > endDate){
+	if (startDate > endDate) {
 		alert("Second date can not be larger!");
 		return;
 	}
 
-	setCookie(startDate,endDate)
+	setCookie(startDate, endDate)
 
 	const newData = {
 		userid: document.getElementById("user-id").querySelector(".content").querySelector(".content"),
@@ -71,7 +71,7 @@ function handlePtoForm(event){
 	const storagePtoLis = localstorage ? JSON.parse(localstorage) : [];
 
 	storagePtoLis.push(newData);
-	
+
 	const updatedData = JSON.stringify(storagePtoLis);
 
 	localStorage.setItem("PtoDate", updatedData)
@@ -85,7 +85,7 @@ function handlePtoForm(event){
 	event.target.reset();
 }
 
-function createPtoElement(startDate, endDate){
+function createPtoElement(startDate, endDate) {
 	const PtoElement = document.createElement("div");
 
 	PtoElement.classList.add("pto");
@@ -111,15 +111,15 @@ function createPtoElement(startDate, endDate){
 }
 
 
-function setCookie(startDate, endDate){
+function setCookie(startDate, endDate) {
 
 	const expiresDate = new Date();
 
-	expiresDate.setTime(expiresDate.getTime() + 24 * 60 * 60 *1000);
+	expiresDate.setTime(expiresDate.getTime() + 24 * 60 * 60 * 1000);
 
 	const startDateString = startDate.getDate() + "-" + (startDate.getMonth() + 1) + "-" + startDate.getFullYear();
 	const endDateString = endDate.getDate() + "-" + (endDate.getMonth() + 1) + "-" + endDate.getFullYear();
-	
+
 	const expires = expiresDate.toUTCString();
 
 	console.log(expires);

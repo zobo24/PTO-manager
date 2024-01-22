@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css"  media="screen" href="../styles/style.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="../styles/style_pto.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../styles/normalize.css" />
+    <link rel="stylesheet" href=" https://jsonplaceholder.typicode.com/users " />
     <title>Pto Manager</title>
 </head>
+
 <body>
 
     <header class="header">
@@ -15,9 +19,18 @@
             <button id="log_out"> Log out </button>
         </nav>
     </header>
-    
+
+
+    <div id="selector">
+        <select id="employer-select">
+            <option value="" selected disabled> Select employer </option>
+        </select>
+
+    </div>
+
 </body>
 
 <script src="../scripts/sign_out.js"></script>
+<script src="../scripts/pto.js"></script>
 
 </html>
