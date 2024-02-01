@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" media="screen" href="../styles/style_pto.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="../styles/normalize.css" />
-    <link rel="stylesheet" href=" https://jsonplaceholder.typicode.com/users " />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>Pto Manager</title>
 </head>
 
@@ -21,16 +21,32 @@
     </header>
 
 
-    <div id="selector">
+    <div class="selector">
         <select id="employer-select">
             <option value="" selected disabled> Select employer </option>
         </select>
 
-    </div>
+        <!--first calendar for starting date -->
+        <div class="calendar-first">
+            <div class="header_calendar">
+                <p class="current-date"> January 2024</p>
+                <div class="icons">
+                    <span id="prev" class="fa-solid fa-chevron-left "></span>
+                    <span id="next" class="fa-solid fa-chevron-right"></span>
+                </div>
+            </div>
+
+            <div class="calendar">
+                <ul class="weeks"></ul>
+                <ul class="days"></ul>
+            </div>
+        </div>
+        <!--second calendar for ending date NAPRAVIT SVE ISTO KAO ZA PRETHODNI SAMO DODATI 2 ISTO JE I ZA CSS( , .DATE2) I JS SAMO NAPRAVIT VARIJABLE ZA 2-->
 
 </body>
 
 <script src="../scripts/sign_out.js"></script>
 <script src="../scripts/pto.js"></script>
+<script src="../scripts/calendar.js"></script>
 
 </html>

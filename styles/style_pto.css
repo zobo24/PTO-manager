@@ -1,31 +1,31 @@
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-body{
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background:rgb(91, 91, 182) ;
+    background: rgb(91, 91, 182);
 
     animation: transitionIN 0.75s;
 }
 
 @keyframes transitionIN {
-    from{
-      opacity: 0;
-      transform: rotateX(-10deg);
+    from {
+        opacity: 0;
+        transform: rotateX(-10deg);
     }
 
-    to{
-      opacity: 1;
-      transform: rotateX(0);
+    to {
+        opacity: 1;
+        transform: rotateX(0);
     }
-  }
+}
 
 
 .header {
@@ -39,7 +39,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100 ;
+    z-index: 100;
     margin: 0 auto;
 }
 
@@ -56,10 +56,10 @@ body{
 }
 
 
-.navbar #log_out::before{
+.navbar #log_out::before {
     content: '';
     position: absolute;
-    top: 100% ;
+    top: 100%;
     left: 0;
     width: 0;
     height: 2px;
@@ -67,49 +67,171 @@ body{
     transition: .3s;
 }
 
-.navbar #log_out:hover::before{
+.navbar #log_out:hover::before {
     width: 100%;
 }
 
 .logo {
     font-size: 32px;
-    color:rgb(91, 91, 182) ;
+    color: rgb(91, 91, 182);
     text-decoration: none;
     font-weight: 700;
-    
-    
+
+
 }
 
 
 /*inside of block where are selector and calendar*/
-#selector {
+.selector {
     display: flex;
-    justify-content:space-between;
+    justify-content: column;
     align-items: center;
-    width: 70%;
+    width: 80%;
     height: 300px;
-    margin: 20px 0;    
+    margin: 10px auto;
     background-color: rgb(21, 96, 146);
     padding: 5% 5% 5% 5%;
     border-radius: 40px;
-    
+
+}
+
+#employer-select {
+    margin-bottom: 20px;
+}
+
+.calendar-first {
+    width: 40%;
+    height: auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.567);
+    margin: 0 10px;
+
+}
+
+.calendar-first .header_calendar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.header_calendar .icons {
+    display: flex;
+    margin-right: 10%;
+}
+
+.header_calendar .icons span {
+    height: 38px;
+    width: 38px;
+    margin: 0 5px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 38px;
+    font-size: 1rem;
+    border-radius: 50%;
+    color: #666464;
+    user-select: none;
+
+}
+
+.header_calendar .icons span:last-child {
+    margin-right: -10px;
+}
+
+.header_calendar .icons span:hover {
+    background: #fffafa;
+}
+
+
+.header_calendar .current-date {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-left: 20%;
+}
+
+.calendar {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar ul {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.calendar ul li {
+    position: relative;
+    color: #262525;
+    width: calc(100%/7);
+    font-size: 12px;
+}
+
+.calendar .weeks li {
+    font-weight: 500;
+    cursor: default;
+}
+.calendar .days {
+    margin: 2%;
+}
+
+.calendar .days li {
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 2%;
+    z-index: 1;
+    position: relative;
+}
+
+.days li.inactive {
+    color: #aaa;
+}
+
+.days li.active {
+    color: #fff;
+}
+
+.calendar ul li::before {
+    position: absolute;
+    content: "";
+    height: 25px;
+    width: 25px;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    background: white;
+}
+
+.days li:hover::before {
+    background: #fffafa;
+}
+
+.days li.active::before {
+    background: rgb(21, 96, 146);
+    ;
 }
 
 
 
-@media  screen and (max-width: 900px){
-    body{
+
+@media screen and (max-width: 900px) {
+    body {
         width: 90%;
         padding-left: 15px;
     }
 }
 
-@media  screen and (max-width:600px) {
-    body{
+@media screen and (max-width:600px) {
+    body {
         width: 95%;
-        padding-left: 15px ;
+        padding-left: 15px;
         padding-top: 30px;
-        
+
     }
-    
+
 }
