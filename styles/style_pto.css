@@ -84,10 +84,10 @@ body {
 /*inside of block where are selector and calendar*/
 .selector {
     display: flex;
-    justify-content: column;
+    justify-content: space-around;
     align-items: center;
     width: 80%;
-    height: 300px;
+    height: 350px;
     margin: 10px auto;
     background-color: rgb(21, 96, 146);
     padding: 5% 5% 5% 5%;
@@ -97,31 +97,37 @@ body {
 
 #employer-select {
     margin-bottom: 20px;
+    border-radius: 30px;
 }
 
-.calendar-first {
+
+.calendar-first ,
+.calendar-second{
     width: 40%;
     height: auto;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.567);
-    margin: 0 10px;
+    margin: 10px 10px;
 
 }
 
-.calendar-first .header_calendar {
+.calendar-first .header_calendar,
+.calendar-second .header_calendar {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
 }
 
-.header_calendar .icons {
+.header_calendar .icons ,
+.header_calendar .icons2 {
     display: flex;
     margin-right: 10%;
 }
 
-.header_calendar .icons span {
+.header_calendar .icons span ,
+.header_calendar .icons2 span  {
     height: 38px;
     width: 38px;
     margin: 0 5px;
@@ -135,50 +141,59 @@ body {
 
 }
 
-.header_calendar .icons span:last-child {
+.header_calendar .icons span:last-child ,
+.header_calendar .icons2 span:last-child {
     margin-right: -10px;
 }
 
-.header_calendar .icons span:hover {
+.header_calendar .icons span:hover ,
+.header_calendar .icons2 span:hover {
     background: #fffafa;
 }
 
 
-.header_calendar .current-date {
+.header_calendar .current-date ,
+.header_calendar .current-date2 {
     font-size: 1.2rem;
     font-weight: bold;
     margin-left: 20%;
 }
 
-.calendar {
+.calendar,
+.calendar2{
     padding: 10px;
     display: flex;
     flex-direction: column;
 }
 
-.calendar ul {
+.calendar ul,
+.calendar2 ul {
     display: flex;
     list-style: none;
     flex-wrap: wrap;
     text-align: center;
 }
 
-.calendar ul li {
+.calendar ul li,
+.calendar2 ul li {
     position: relative;
     color: #262525;
     width: calc(100%/7);
     font-size: 12px;
 }
 
-.calendar .weeks li {
+.calendar .weeks li ,
+.calendar2 .weeks2 li {
     font-weight: 500;
     cursor: default;
 }
-.calendar .days {
+.calendar .days ,
+.calendar2 .days2 {
     margin: 2%;
 }
 
-.calendar .days li {
+.calendar .days li,
+.calendar2 .days2 li {
     cursor: pointer;
     margin-top: 15px;
     margin-bottom: 2%;
@@ -186,15 +201,18 @@ body {
     position: relative;
 }
 
-.days li.inactive {
+.days li.inactive,
+.days2 li.inactive {
     color: #aaa;
 }
 
-.days li.active {
+.days li.active,
+.days2 li.active {
     color: #fff;
 }
 
-.calendar ul li::before {
+.calendar ul li::before,
+.calendar2 ul li::before {
     position: absolute;
     content: "";
     height: 25px;
@@ -207,13 +225,25 @@ body {
     background: white;
 }
 
-.days li:hover::before {
+.days li:hover::before,
+.days2 li:hover::before {
     background: #fffafa;
 }
 
-.days li.active::before {
+.days li.active::before,
+.days2 li.active::before {
     background: rgb(21, 96, 146);
     ;
+}
+
+.addPto {
+    border-radius: 30px;
+    width: 100px;
+    height: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
 }
 
 

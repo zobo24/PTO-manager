@@ -12,8 +12,27 @@ let date = new Date();
 currentYear = date.getFullYear();
 currentMonth = date.getMonth();
 
+
+//taking first from current_date2
+const currentDate2 = document.querySelector(".current-date2");
+daysTag2 = document.querySelector(".days2");
+prevNextIcon2 = document.querySelectorAll(".icons2 span");
+
+//ul element
+const week_list2 = document.createElement('ul');
+week_list2.className = 'weeks2';
+
+//variables for second ending date calendar
+let date2 = new Date();
+currentYear2 = date2.getFullYear();
+currentMonth2 = date2.getMonth();
+
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const week = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
+
+const months2 = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const week2 = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
+
 
 const renderCalendar = () => {
     //first day of month
@@ -50,12 +69,49 @@ const renderCalendar = () => {
     daysTag.innerHTML = liTag;
 }
 
+renderCalendar2 = () => {
+
+    let firstDayofMonth2 = new Date(currentYear2, currentMonth2, 0).getDay();
+
+    let lastDateofMonth2 = new Date(currentYear2, currentMonth2 + 1, 0).getDate();
+
+    let lastDayofMonth2 = new Date(currentYear2, currentMonth2, lastDateofMonth2 - 1).getDay();
+    let lastDateofLastMonth2 = new Date(currentYear2, currentMonth2, 0).getDate();
+
+    liTag2 = "";
+
+    for (let i = firstDayofMonth2; i > 0; i--) {
+        liTag2 += `<li class="inactive">${lastDateofLastMonth2 - i + 1}</li>`;
+    }
+
+    for (let i = 1; i <= lastDateofMonth2; i++) {
+        let Today2 = i === date2.getDate() && currentMonth2 === new Date().getMonth() && currentYear2 === new Date().getFullYear() ? "active" : "";
+
+        liTag2 += `<li class="${Today2}">${i}</li>`;
+    }
+
+    for(let i = lastDayofMonth2; i<6; i++)
+    {
+        liTag2 += `<li class=inactive>${i - lastDayofMonth2 + 1}</li>`;
+    }
+
+    currentDate2.innerText = `${months2[currentMonth2]} ${currentYear2}`;
+    daysTag2.innerHTML = liTag2;
+}
+
 //creating li elements and append them to ul element
 week.forEach(day => {
     const listItem = document.createElement(`li`);
     listItem.textContent = day;
     week_list.appendChild(listItem);
 });
+
+week2.forEach(day => {
+    const listItem = document.createElement(`li`);
+    listItem.textContent = day;
+    week_list2.appendChild(listItem);
+});
+
 
 //ul element appended to existing html element
 //document.body.appendChild(week_list);
@@ -64,6 +120,9 @@ week.forEach(day => {
 const calendarElement = document.querySelector(`.calendar`);
 //ul into class
 calendarElement.insertBefore(week_list, daysTag);
+
+const calendarElement2 = document.querySelector(`.calendar2`);
+calendarElement2.insertBefore(week_list2,daysTag2);
 
 prevNextIcon.forEach(icon => {
     //click event on both click in calendar_header
@@ -80,4 +139,20 @@ prevNextIcon.forEach(icon => {
     });
 });
 
+prevNextIcon2.forEach(icon2 => {
+    icon2.addEventListener("click", () => {
+
+        currentMonth2 = icon2.id === "prev" ? currentMonth2 - 1 :
+        currentMonth2 + 1;
+
+        if(currentMonth2 > 11) { currentMonth2 = 2; currentYear2 += 1;}
+
+        if(currentMonth2 < 0) { currentMonth2 = 11; currentYear2 -= 1; }
+
+        renderCalendar2();
+
+    })
+})
+
 renderCalendar();
+renderCalendar2();

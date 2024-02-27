@@ -20,7 +20,7 @@
         </nav>
     </header>
 
-
+    
     <div class="selector">
         <select id="employer-select">
             <option value="" selected disabled> Select employer </option>
@@ -41,8 +41,26 @@
                 <ul class="days"></ul>
             </div>
         </div>
-        <!--second calendar for ending date NAPRAVIT SVE ISTO KAO ZA PRETHODNI SAMO DODATI 2 ISTO JE I ZA CSS( , .DATE2) I JS SAMO NAPRAVIT VARIJABLE ZA 2-->
+        <!--  Malo smanji kalendare da kad se prosiru ne prelaze kontenjer-->
+         <!--second calendar for starting date -->
+         <div class="calendar-second">
+            <div class="header_calendar">
+                <p class="current-date2"> January 2024</p>
+                <div class="icons2">
+                    <span id="prev" class="fa-solid fa-chevron-left "></span>
+                    <span id="next" class="fa-solid fa-chevron-right"></span>
+                </div>
+            </div>
 
+            <div class="calendar2">
+                <ul class="weeks2"></ul>
+                <ul class="days2"></ul>
+            </div>
+        </div>
+
+        <button class="addPto"> Add PTO </button>
+    </div>  
+        
 </body>
 
 <script src="../scripts/sign_out.js"></script>
