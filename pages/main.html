@@ -20,7 +20,7 @@
         </nav>
     </header>
 
-    
+
     <div class="selector">
         <select id="employer-select">
             <option value="" selected disabled> Select employer </option>
@@ -29,7 +29,7 @@
         <!--first calendar for starting date -->
         <div class="calendar-first">
             <div class="header_calendar">
-                <p class="current-date"> January 2024</p>
+                <p class="current-date" id="current-date"></p>
                 <div class="icons">
                     <span id="prev" class="fa-solid fa-chevron-left "></span>
                     <span id="next" class="fa-solid fa-chevron-right"></span>
@@ -41,11 +41,10 @@
                 <ul class="days"></ul>
             </div>
         </div>
-        <!--  Malo smanji kalendare da kad se prosiru ne prelaze kontenjer-->
-         <!--second calendar for starting date -->
-         <div class="calendar-second">
+        <!--second calendar for starting date -->
+        <div class="calendar-second">
             <div class="header_calendar">
-                <p class="current-date2"> January 2024</p>
+                <p class="current-date2"></p>
                 <div class="icons2">
                     <span id="prev" class="fa-solid fa-chevron-left "></span>
                     <span id="next" class="fa-solid fa-chevron-right"></span>
@@ -59,12 +58,12 @@
         </div>
 
         <button class="addPto"> Add PTO </button>
-    </div>  
-        
+    </div>
+
 </body>
 
 <script src="../scripts/sign_out.js"></script>
-<script src="../scripts/pto.js"></script>
 <script src="../scripts/calendar.js"></script>
+<script src="../scripts/pto.js"></script>
 
 </html>

@@ -98,22 +98,21 @@ document.getElementById("button").addEventListener("click", function(event) {
     event.preventDefault();
     window.location.href = "main.html";
      //new user
-    //email stored to cookie 
-    setCookie(email.value);
+    //email and password stored to cookie 
+    setCookie(email.value, password.value);
     }
 
 });
 
 
 //cookie function by value
-function setCookie(value) {
+function setCookie(value, value_pass) {
     const exDate = new Date();
     //one day
     exDate.setTime(exDate.getTime() + 24 * 60 * 60 * 1000);
     let expires = "expires=" + exDate.toUTCString();
 
-    // document.cookie = `user= ${value};${expires};Secure;path=/`;
-   
-    document.cookie = "email=" + value + ";" + expires + ";SameSite=None;Secure;path=/";
+        document.cookie = "email=" + value + ";" + expires + ";SameSite=None;Secure;path=/";
+        document.cookie = "password=" + value_pass + ";" + expires + ";SameSite=None;Secure;path=/";
 
 }

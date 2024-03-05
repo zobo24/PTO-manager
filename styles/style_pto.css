@@ -6,14 +6,15 @@
 }
 
 body {
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background: rgb(91, 91, 182);
-
     animation: transitionIN 0.75s;
 }
+
+
 
 @keyframes transitionIN {
     from {
@@ -29,7 +30,7 @@ body {
 
 
 .header {
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
@@ -88,7 +89,7 @@ body {
     align-items: center;
     width: 80%;
     height: 350px;
-    margin: 10px auto;
+    margin: 30px auto;
     background-color: rgb(21, 96, 146);
     padding: 5% 5% 5% 5%;
     border-radius: 40px;
@@ -98,11 +99,12 @@ body {
 #employer-select {
     margin-bottom: 20px;
     border-radius: 30px;
+    width: 135px;
 }
 
 
-.calendar-first ,
-.calendar-second{
+.calendar-first,
+.calendar-second {
     width: 40%;
     height: auto;
     background: #fff;
@@ -120,14 +122,14 @@ body {
 
 }
 
-.header_calendar .icons ,
+.header_calendar .icons,
 .header_calendar .icons2 {
     display: flex;
     margin-right: 10%;
 }
 
-.header_calendar .icons span ,
-.header_calendar .icons2 span  {
+.header_calendar .icons span,
+.header_calendar .icons2 span {
     height: 38px;
     width: 38px;
     margin: 0 5px;
@@ -141,26 +143,26 @@ body {
 
 }
 
-.header_calendar .icons span:last-child ,
+.header_calendar .icons span:last-child,
 .header_calendar .icons2 span:last-child {
     margin-right: -10px;
 }
 
-.header_calendar .icons span:hover ,
+.header_calendar .icons span:hover,
 .header_calendar .icons2 span:hover {
     background: #fffafa;
 }
 
 
-.header_calendar .current-date ,
+.header_calendar .current-date,
 .header_calendar .current-date2 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
     margin-left: 20%;
 }
 
 .calendar,
-.calendar2{
+.calendar2 {
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -182,12 +184,13 @@ body {
     font-size: 12px;
 }
 
-.calendar .weeks li ,
+.calendar .weeks li,
 .calendar2 .weeks2 li {
     font-weight: 500;
     cursor: default;
 }
-.calendar .days ,
+
+.calendar .days,
 .calendar2 .days2 {
     margin: 2%;
 }
@@ -233,7 +236,6 @@ body {
 .days li.active::before,
 .days2 li.active::before {
     background: rgb(21, 96, 146);
-    ;
 }
 
 .addPto {
@@ -244,9 +246,118 @@ body {
     outline: none;
     cursor: pointer;
     position: relative;
+    font-weight: bold;
+}
+
+#selecteddate2 {
+    color: rgb(38, 0, 255);
+    background-color: red;
+    transition: 0.5s;
+}
+
+#selecteddate {
+    color: rgb(38, 0, 255);
+    background-color: red;
+    transition: 0.5s;
 }
 
 
+/*style for pto container*/
+.profile {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+    max-width: 400px;
+    width: 100%;
+    background-color: rgb(21, 96, 146);
+    border-radius: 40px;
+    padding: 25px;
+    animation: transitionIN 0.75s;
+}
+
+.pto-label-current {
+    font-weight: bold;
+    color: rgb(23, 181, 63);
+    font-size: large;
+}
+
+.pto-label-past {
+    font-weight: bold;
+    color: rgb(255, 36, 36);
+    font-size: large;
+
+}
+
+.pto-label-future {
+    font-weight: bold;
+    color: rgb(229, 255, 36);
+    font-size: large;
+}
+
+.name-label {
+    font-weight: bold;
+    color: #fff;
+    font-size: x-large;
+}
+
+.email {
+    font-weight: bold;
+    color: #fff;
+    font-size: x-large;
+}
+
+.pto-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.pto-image {
+    width: 100%;
+    border-radius: 5px;
+    height: 90px;
+    object-fit: cover;
+    position: absolute;
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
+.content-pto {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    margin: 2% 0;
+    font-size: small;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+
+.pto-delete-image {
+
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.email {
+    color: aqua;
+    font-size: medium;
+    margin: 2% auto;
+}
+
+.content-pto p {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+
+}
 
 
 @media screen and (max-width: 900px) {
@@ -254,14 +365,94 @@ body {
         width: 90%;
         padding-left: 15px;
     }
+
+    .selector {
+        width: 90%;
+    }
+
+    #employer-select {
+       width: 110px;
+    }
+
+    .calendar-first,
+    .calendar-second {
+        width: 80%;
+        margin: 10px;
+    }
+
+    .header_calendar .icons span,
+    .header_calendar .icons2 span {
+        height: 30px;
+        width: 20px;
+        line-height: 30px;
+        font-size: 0.8rem;
+    }
+
+    .header_calendar .current-date,
+    .header_calendar .current-date2 {
+        font-size: 15px;
+        margin-left: 15%;
+    }
+
+    .calendar ul li,
+    .calendar2 ul li {
+        width: calc(100%/7);
+        font-size: 8px;
+    }
+
+    .addPto {
+        width: 120px;
+        font-size: 12px;
+        font-weight: bold;
+    }
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:700px) {
     body {
-        width: 95%;
+        width: 100%;
         padding-left: 15px;
         padding-top: 30px;
 
     }
 
+    
+    #employer-select {
+        width: 100px;
+     }
+
+    .calendar-first,
+    .calendar-second {
+        width: 70%;
+        margin: 10px;
+    }
+
+    .header_calendar .icons span,
+    .header_calendar .icons2 span {
+        height: 30px;
+        width: 15px;
+        line-height: 30px;
+        font-size: 0.8rem;
+    }
+
+    .calendar .weeks li,
+    .calendar2 .weeks2 li {
+        font-weight: 500;
+        font-size: 6px;
+        cursor: default;
+    }
+
+    .header_calendar .current-date,
+    .header_calendar .current-date2 {
+        font-size: 10px;
+        margin-left: 15%;
+    }
+
+    .calendar ul li::before,
+    .calendar2 ul li::before {
+        display: none;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
 }

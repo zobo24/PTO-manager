@@ -1,3 +1,5 @@
+
+
 //taking first from current_date
 const currentDate = document.querySelector(".current-date");
 daysTag = document.querySelector(".days");
@@ -55,7 +57,7 @@ const renderCalendar = () => {
     for (let i = 1; i <= lastDateofMonth; i++) {
         //if 3 arguments match that li is active
         let Today = i === date.getDate() && currentMonth === new Date().getMonth() && currentYear === new Date().getFullYear() ? "active" : "";
-        liTag += `<li class="${Today}">${i}</li>`;
+        liTag += `<li class="Other">${i}</li>`;
     }
 
     //same as for begining, bbut showing days of nexxt month
@@ -67,9 +69,30 @@ const renderCalendar = () => {
     //shows month and year inside calendar_header
     currentDate.innerText = ` ${months[currentMonth]} ${currentYear}`;
     daysTag.innerHTML = liTag;
+
+    const Other = document.querySelectorAll(".Other");
+
+    Other.forEach(day => {
+        day.addEventListener("click", () => {
+
+            Other.forEach(day => {
+                day.removeAttribute("id");
+            })
+
+            day.setAttribute("id", "selecteddate");
+
+            const selectedDate = new Date(`${currentYear}-${currentMonth + 1}-${day.textContent}`);
+
+
+
+            //selected date will be start date stored in localStorage for other functions to use
+            localStorage.setItem("startDate", selectedDate);
+        })
+    })
+
 }
 
-renderCalendar2 = () => {
+const renderCalendar2 = () => {
 
     let firstDayofMonth2 = new Date(currentYear2, currentMonth2, 0).getDay();
 
@@ -87,16 +110,37 @@ renderCalendar2 = () => {
     for (let i = 1; i <= lastDateofMonth2; i++) {
         let Today2 = i === date2.getDate() && currentMonth2 === new Date().getMonth() && currentYear2 === new Date().getFullYear() ? "active" : "";
 
-        liTag2 += `<li class="${Today2}">${i}</li>`;
+        liTag2 += `<li class="Other2">${i}</li>`;
     }
 
-    for(let i = lastDayofMonth2; i<6; i++)
-    {
+    for (let i = lastDayofMonth2; i < 6; i++) {
         liTag2 += `<li class=inactive>${i - lastDayofMonth2 + 1}</li>`;
     }
 
     currentDate2.innerText = `${months2[currentMonth2]} ${currentYear2}`;
     daysTag2.innerHTML = liTag2;
+
+    //choosing day
+
+    const Other2 = document.querySelectorAll(".Other2");
+
+    Other2.forEach(day => {
+        day.addEventListener("click", () => {
+
+            Other2.forEach(day => {
+                day.removeAttribute("id");
+            })
+
+            day.setAttribute("id", "selecteddate2");
+
+            const selectedDate2 = new Date(`${currentYear2}-${currentMonth2 + 1}-${day.textContent}`);
+
+
+            localStorage.setItem("endDate", selectedDate2);
+
+        });
+    });
+
 }
 
 //creating li elements and append them to ul element
@@ -122,7 +166,7 @@ const calendarElement = document.querySelector(`.calendar`);
 calendarElement.insertBefore(week_list, daysTag);
 
 const calendarElement2 = document.querySelector(`.calendar2`);
-calendarElement2.insertBefore(week_list2,daysTag2);
+calendarElement2.insertBefore(week_list2, daysTag2);
 
 prevNextIcon.forEach(icon => {
     //click event on both click in calendar_header
@@ -143,16 +187,20 @@ prevNextIcon2.forEach(icon2 => {
     icon2.addEventListener("click", () => {
 
         currentMonth2 = icon2.id === "prev" ? currentMonth2 - 1 :
-        currentMonth2 + 1;
+            currentMonth2 + 1;
 
-        if(currentMonth2 > 11) { currentMonth2 = 2; currentYear2 += 1;}
+        if (currentMonth2 > 11) { currentMonth2 = 2; currentYear2 += 1; }
 
-        if(currentMonth2 < 0) { currentMonth2 = 11; currentYear2 -= 1; }
+        if (currentMonth2 < 0) { currentMonth2 = 11; currentYear2 -= 1; }
 
         renderCalendar2();
+    });
+});
 
-    })
-})
+
 
 renderCalendar();
 renderCalendar2();
+
+localStorage.setItem("endDate", "");
+localStorage.setItem("startDate", "");

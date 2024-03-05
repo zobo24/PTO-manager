@@ -1,32 +1,33 @@
 /*assigned to all elements  */
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background:rgb(91, 91, 182) ;
+    background: rgb(91, 91, 182);
 
     animation: transitionIN 0.75s;
 }
 
+
 @keyframes transitionIN {
-    from{
-      opacity: 0;
-      transform: rotateX(-10deg);
+    from {
+        opacity: 0;
+        transform: rotateX(-10deg);
     }
 
-    to{
-      opacity: 1;
-      transform: rotateX(0);
+    to {
+        opacity: 1;
+        transform: rotateX(0);
     }
-  }
+}
 
 .header {
     position: fixed;
@@ -39,17 +40,17 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100 ;
+    z-index: 100;
     margin: 0 auto;
 }
 
 .logo {
     font-size: 32px;
-    color:rgb(91, 91, 182) ;
+    color: rgb(91, 91, 182);
     text-decoration: none;
     font-weight: 700;
-    
-    
+
+
 }
 
 .navbar #log_out {
@@ -64,10 +65,10 @@ body{
     margin-left: 40px;
 }
 
-.navbar #log_out::before{
+.navbar #log_out::before {
     content: '';
     position: absolute;
-    top: 100% ;
+    top: 100%;
     left: 0;
     width: 0;
     height: 2px;
@@ -75,7 +76,7 @@ body{
     transition: .3s;
 }
 
-.navbar #log_out:hover::before{
+.navbar #log_out:hover::before {
     width: 100%;
 }
 
@@ -90,10 +91,10 @@ body{
 
 }
 
-.navbar a::before{
+.navbar a::before {
     content: '';
     position: absolute;
-    top: 100% ;
+    top: 100%;
     left: 0;
     width: 0;
     height: 2px;
@@ -101,24 +102,24 @@ body{
     transition: .3s;
 }
 
-.navbar a:hover::before{
+.navbar a:hover::before {
     width: 100%;
 }
 
 
-.wrapper{
+.wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 420px;
     background: transparent;
-    border: 2px solid rgba(255,255,255,.2);
+    border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(20px);
-    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     color: white;
     font-weight: bold;
     border-radius: 10px;
-    padding: 30px  40px ;
+    padding: 30px 40px;
 }
 
 .wrapper h1 {
@@ -131,7 +132,7 @@ body{
     width: 100%;
     height: 50px;
     margin: 30px 0;
-    
+
 }
 
 .input-box input {
@@ -140,7 +141,7 @@ body{
     background: transparent;
     border: none;
     outline: none;
-    border: 2px solid rgb(255,255,255,.2);
+    border: 2px solid rgb(255, 255, 255, .2);
     border-radius: 40px;
     font-size: 16px;
     color: #fff;
@@ -160,7 +161,7 @@ body{
     font-size: 20px;
 }
 
-#email-error{
+#email-error {
     position: flex;
     align-items: center;
     top: 100%;
@@ -192,7 +193,7 @@ body{
     border: none;
     outline: none;
     border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0,0,0,1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
     cursor: pointer;
     font-size: 16px;
     color: #333;
@@ -202,12 +203,12 @@ body{
 #wrapper-message {
     width: 620px;
     background: rgb(82, 82, 165);
-    border: 2px solid rgba(255,255,255,.2);
+    border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(20px);
-    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     color: white;
     border-radius: 10px;
-    padding: 30px  40px ;
+    padding: 30px 40px;
 }
 
 #wrapper-message h2 {
@@ -216,24 +217,58 @@ body{
     text-align: center;
 }
 
-@media  screen and (max-width: 900px){
-    body{
+@media screen and (max-width: 900px) {
+    body {
         width: 90%;
         padding-left: 15px;
-        
+
     }
+
+    .wrapper {
+        height: 40%;
+        width: 400px;
+    }
+
+    #wrapper-message {
+        width: 500px;
+    }
+
+    #wrapper-message h2 {
+        font-size: 25px;
+        padding: 25px 20px;
+        text-align: center;
+    }
+
 }
 
-@media  screen and (max-width:600px) {
-    body{
+@media screen and (max-width:600px) {
+    body {
         width: 95%;
-        padding-left: 15px ;
+        padding-left: 15px;
         padding-top: 30px;
-        
+
     }
 
-    .wrapper{
-        height: 40%;
+    .logo {
+        font-size: 25px;
     }
-    
+
+    .navbar a {
+        font-size: 15px;
+    }
+
+    .wrapper {
+        height: 40%;
+        width: 360px;
+    }
+
+    #wrapper-message {
+        width: 400px;
+    }
+
+    #wrapper-message h2 {
+        font-size: 20px;
+        padding: 20px 15px;
+    }
+
 }
