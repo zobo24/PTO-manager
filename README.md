@@ -29,31 +29,6 @@ PtoManager/
 └── README.md                # This README file
 ```
 
----
-
-## Installation
-
-### Prerequisites
-To run this project locally, you need:
-- A modern web browser (Chrome, Firefox, Safari, etc.)
-- A local server (optional for local testing, you can simply open the HTML file in a browser)
-
-### Steps to Run Locally
-1. **Clone the repository** to your local machine:
-
-   ```bash
-   git clone https://github.com/your-username/pto-manager.git
-   cd pto-manager
-   ```
-
-2. **Open the `index.html` file** in your browser:
-
-   Simply double-click on the `index.html` file to open it in your default web browser.
-
-   Optionally, you can run a local development server (e.g., using Visual Studio Code's Live Server extension or any other server tool) if you want to simulate a more production-like environment.
-
----
-
 ## Usage
 
 ### Select Employer
