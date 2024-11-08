@@ -1,6 +1,3 @@
-Sure! Below is a sample `README.md` for your "PTO Manager" web application. This file provides an overview of the project, its structure, and instructions for usage.
-
----
 
 # PTO Manager
 
