@@ -68,10 +68,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## Notes
-- Make sure to have the necessary dependencies (like the Font Awesome library) included for the icons to render properly.
-- You can easily extend this project by adding more features, such as a backend to store PTO requests, or adding more complex date range validation.
-
----
-
-Let me know if you need any further adjustments or additional information for your project!
